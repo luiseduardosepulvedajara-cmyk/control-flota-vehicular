@@ -84,18 +84,29 @@ La aplicacion fue verificada con:
 python -m py_compile app.py
 streamlit run app.py
 ```
-Resultado: compilacion exitosa y la app levanta y responde en `http://localhost:8501`.
-
-**Pendiente antes de la demo:** la `SUPABASE_PUBLISHABLE_KEY` configurada actualmente es
-rechazada por el proyecto de Supabase ("Invalid API key"). Debe reemplazarse por la clave
-anon/publishable real desde *Project Settings > API* antes de poder consultar datos reales.
+Resultado: compilacion exitosa, la app levanta en `http://localhost:8501` y los tres
+modulos fueron probados de punta a punta contra un proyecto real de Supabase (conexion,
+lectura/escritura de tablas, subida y lectura publica de evidencias en Storage).
 
 ## 7. Evidencias de funcionamiento
-Documentar con capturas una vez reemplazada la clave de Supabase:
-- Login de cada perfil (Guardia, Conductor, Administrador).
-- Validacion de acceso Autorizado/Denegado/Alerta de Estado con foto.
-- Check-in de conductor que dispara "Requiere Mantención".
-- Panel BI: KPIs, matriz de estado, feed y auditoria por patente.
+
+### Guardia: validacion de acceso autorizado
+![Guardia - Autorizado](capturas/01_guardia_autorizado.png)
+
+### Guardia: bitacora de accesos registrados
+![Guardia - Bitacora](capturas/02_guardia_bitacora.png)
+
+### Conductor: check-in con falla critica -> cambio automatico a "Requiere Mantención"
+![Conductor - Requiere Mantencion](capturas/03_conductor_checkin_mantencion.png)
+
+### Administrador: KPIs y matriz de estado por vehiculo
+![Administrador - KPIs y matriz](capturas/04_admin_kpis_matriz.png)
+
+### Administrador: analitica de kilometraje y accesos
+![Administrador - Analitica](capturas/05_admin_analitica.png)
+
+### Administrador: feed cronologico y auditoria por patente
+![Administrador - Feed y auditoria](capturas/06_admin_feed_auditoria.png)
 
 ## 8. Conclusiones
 La plataforma queda preparada para ejecutar en entorno local mediante VS Code, con un
